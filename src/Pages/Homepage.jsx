@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Box, Text ,Center } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import SignUp from '../Components/Authntication/Signup';
+import SignUp from '../Components/Authntication/SignUp';
 import Login from '../Components/Authntication/Login';
 import { useHistory } from "react-router-dom";
 import { useEffect } from 'react';
