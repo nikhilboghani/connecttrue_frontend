@@ -9,7 +9,7 @@ import { Text } from '@chakra-ui/layout';
 import { Stack } from '@chakra-ui/layout';
 import ChatLoading from './ChatLoading';
 import { getSender } from "../config/ChatLogics";
-import { Group } from '@material-ui/icons';
+// import { Group } from '@material-ui/icons';
 import GroupChatModel from "./Miscellaneous/GroupChatModel";
 
 function MyChats({ fetchAgain}) {
