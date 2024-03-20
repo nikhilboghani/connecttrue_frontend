@@ -6,7 +6,7 @@ export default defineConfig({
 
   server: {
     proxy: {
-      '/api':"http://localhost:3000",
+      '/api': "https://connecttrue-backend.onrender.com",
     },
   },
   plugins: [react()],
