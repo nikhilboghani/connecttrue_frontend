@@ -6,7 +6,7 @@ import { Button  , ButtonGroup} from '@chakra-ui/button';
 import { useToast } from '@chakra-ui/toast';
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import e from 'cors';
+
 function Login() {
 
     const [email, setEmail] = useState('')
