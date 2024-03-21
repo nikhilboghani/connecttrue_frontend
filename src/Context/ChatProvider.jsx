@@ -1,15 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ChatContext = createContext();
 
 const ChatProvider = ({ children }) => {
+  const  navigateTo = useNavigate()
     
     const [user, setUser] = useState( null);
     const [selectedChat ,setSelectedChat] = useState();
     const [chats ,setChats] = useState([])
    
-    const history = useHistory();
 
 
     useEffect(() => {
@@ -18,20 +18,16 @@ const ChatProvider = ({ children }) => {
     }, []);
 
     
-  const navigate = (path) => {
-    if(history) {
-      history.push(path)  
-    }
-  };
+ 
 
   useEffect(() => {
     if(!user) {
-      navigate("/"); 
+      navigateTo("/"); 
     }
     else{
-        navigate("/chats");
+        navigateTo("/chats");
     }
-  }, [user, navigate]);
+  }, [user]);
 
     return (
         <ChatContext.Provider 

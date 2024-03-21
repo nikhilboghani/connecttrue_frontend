@@ -5,10 +5,12 @@ import { Input  ,InputGroup ,InputRightElement} from '@chakra-ui/input';
 import { Button  , ButtonGroup} from '@chakra-ui/button';
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   
+  const  navigateTo = useNavigate()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -17,7 +19,8 @@ function Signup() {
   const [show, setShow] = useState(false)
   const [loading, setLoading] = useState(false)
   const toast = useToast()
-  const history = useHistory()
+  // const history = useHistory()
+
 
     const handleClick = () => setShow(!show)
 
@@ -119,7 +122,7 @@ function Signup() {
            localStorage.setItem('userInfo' , JSON.stringify(data));
 
             setLoading(false);
-            history.push("/chats");
+            navigateTo("/chats");
 
         }
         catch(error){  

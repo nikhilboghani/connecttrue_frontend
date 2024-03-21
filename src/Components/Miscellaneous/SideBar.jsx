@@ -6,14 +6,17 @@ import { BellIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { Avatar } from '@chakra-ui/react';
 import { useChatState } from "../../Context/ChatProvider";
 import ProfileModel from './ProfileModel';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+// import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDisclosure } from '@chakra-ui/hooks';
 import axios from 'axios';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../UsersAccess/UserListItem';
 import { Spinner } from '@chakra-ui/spinner';
+import { useNavigate } from 'react-router-dom';
+
 
 function SideBar() {
+  const navigateTo = useNavigate()
 
 const [search, setSearch] = useState("");
 const [searchResults, setSearchResults] = useState([]);
@@ -22,14 +25,13 @@ const [loadingChat, setLoadingChat] = useState();
 
 const { user = {} } = useChatState() || {};
 const {setSelectedChat ,chats ,setChats} = useChatState();
-const history = useHistory();
 const { isOpen, onOpen, onClose } = useDisclosure()
 
 
  const logoutHandler = () => {  
 
   localStorage.removeItem("userInfo");
-  history.push("/");
+ navigateTo("/")
 
  };
 

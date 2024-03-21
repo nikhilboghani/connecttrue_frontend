@@ -3,19 +3,23 @@ import { Container, Box, Text ,Center } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 import SignUp from '../Components/Authntication/SignUp';
 import Login from '../Components/Authntication/Login';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 function Homepage() {
   
-  const history = useHistory();
+  const  navigateTo = useNavigate()
+  // const history = useHistory();
  
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("userInfo"))
         
        if(user)
-           history.push('/chats')
+           navigateTo('/chats')
        
 
     }, [history]);
