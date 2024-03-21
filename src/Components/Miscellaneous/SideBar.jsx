@@ -13,8 +13,6 @@ import ChatLoading from '../ChatLoading';
 import UserListItem from '../UsersAccess/UserListItem';
 import { Spinner } from '@chakra-ui/spinner';
 
-
-const apiUrl = process.env.REACT_APP_BACKEND_URL;
 function SideBar() {
 
 const [search, setSearch] = useState("");
@@ -59,7 +57,7 @@ const { isOpen, onOpen, onClose } = useDisclosure()
           }
         };
 
-        const {data} = await axios.get(`${apiUrl}/api/user?search=${search}`, config);
+        const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/user?search=${search}`, config);
         setLoading(false);
         setSearchResults(data);
        } catch (error) {
@@ -85,7 +83,7 @@ const { isOpen, onOpen, onClose } = useDisclosure()
           }
         };
 
-          const {data} =await axios.post("/api/chat" ,{userId} ,config);
+          const {data} =await axios.post(`${import.meta.env.VITE_BACKEND_URI}/api/chat` ,{userId} ,config);
             if(!chats.find((c)=> c._id === data._id)) setChats([data, ...chats]);
 
               setSelectedChat(data);

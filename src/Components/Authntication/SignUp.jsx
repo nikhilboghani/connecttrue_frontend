@@ -104,7 +104,7 @@ function Signup() {
           };
 
           const {data} = await axios.post(
-            "/api/user" ,
+            `${import.meta.env.VITE_BACKEND_URI}/api/user` ,
             {name , email , password , pic},
             config
           );

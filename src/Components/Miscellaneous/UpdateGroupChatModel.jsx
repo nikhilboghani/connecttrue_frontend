@@ -14,8 +14,7 @@ import axios from "axios"
 import UserListItem from "../UsersAccess/UserListItem"
 
 
-  const apiUrl = process.env.REACT_APP_BACKEND_URL;
-  
+
 function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
   
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -28,7 +27,7 @@ function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
     const toast = useToast();
 
     const { user, selectedChat, setSelectedChat } = useChatState();
-
+  
     // handling functions 
 
     const handleAddUser = async (user1)=>{
@@ -65,7 +64,7 @@ function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
                     },
                 };
 
-           const {data} =  await axios.put("/api/chat/groupadd", {
+           const {data} =  await axios.put(`${import.meta.env.VITE_BACKEND_URI}/api/chat/groupadd`, {
 
                 chatId : selectedChat._id,
                 userId : user1._id,
@@ -113,7 +112,7 @@ function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
                     },
                 };
 
-                   const {data} =  await axios.put("/api/chat/groupremove", {
+                   const {data} =  await axios.put(`${import.meta.env.VITE_BACKEND_URI}/api/chat/groupremove`, {
 
                 chatId : selectedChat._id,
                 userId : user1._id,
@@ -154,7 +153,7 @@ function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
               },
             };
 
-            const {data} = await axios.put("/api/chat/rename", {
+            const {data} = await axios.put(`${import.meta.env.VITE_BACKEND_URI}/api/chat/rename`, {
               chatId: selectedChat._id,
               chatName: groupChatName,
             }, config);
@@ -192,7 +191,7 @@ function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const {data} = await axios.get(`${apiUrl}/api/user?search=${search}`, config);
+            const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/user?search=${search}`, config);
             console.log(data);
             setSearchResult(data);
             setLoading(false);

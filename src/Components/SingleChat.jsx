@@ -19,7 +19,7 @@ import animationData from "../animations/typing.json";
 
 const  ENDPOINT = "https://connecttrue-backend.onrender.com";
 var  socket , selectedChatCompare;
-const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
 
 function SingleChat({ fetchAgain, setFetchAgain }) {
 
@@ -54,7 +54,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
                     }
                 };
                 setLoading(true);
-                const {data} = await axios.get(`${apiUrl}/api/chat/message/${selectedChat._id}`, config);
+                const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/chat/message/${selectedChat._id}`, config);
                 setMessages(data);
                 setLoading(false);
 
@@ -109,7 +109,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
                     }
                 }
                 
-                const {data} = await axios.post("/api/chat/message" ,{
+                const {data} = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/api/chat/message` ,{
                     content : newMessage,
                     chatId : selectedChat._id
                 

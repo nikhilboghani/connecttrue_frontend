@@ -13,7 +13,7 @@ import { Box } from '@chakra-ui/layout';
 import { wrap } from 'framer-motion';
 
 
-const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
 function GroupChatModel({children}) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -39,7 +39,7 @@ function GroupChatModel({children}) {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const {data} = await axios.get(`${apiUrl}/api/user?search=${search}`, config);
+            const {data} = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/api/user?search=${search}`, config);
             console.log(data);
             setSearchResult(data);
             setLoading(false);
@@ -95,7 +95,7 @@ function GroupChatModel({children}) {
                     Authorization: `Bearer ${user.token}`,
                 },
               };
-                const {data} = await axios.post(`/api/chat/group`,
+                const {data} = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/api/chat/group`,
                  {
                   name: groupChatName,
                   users: JSON.stringify(selectedUsers.map((user)=>user._id)),   

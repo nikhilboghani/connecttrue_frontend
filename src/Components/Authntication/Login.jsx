@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
 
+
 function Login() {
 
     const [email, setEmail] = useState('')
@@ -45,7 +46,7 @@ function Login() {
         };  
         
         const {data} = await axios.post(
-          "api/user/login",
+          `${import.meta.env.VITE_BACKEND_URI}/api/user/login`,
            {email, password},
             config
          );
