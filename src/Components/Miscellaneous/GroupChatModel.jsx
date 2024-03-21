@@ -13,7 +13,7 @@ import { Box } from '@chakra-ui/layout';
 import { wrap } from 'framer-motion';
 
 
-
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 function GroupChatModel({children}) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()

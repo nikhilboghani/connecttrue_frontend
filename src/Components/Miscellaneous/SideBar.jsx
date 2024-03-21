@@ -13,6 +13,8 @@ import ChatLoading from '../ChatLoading';
 import UserListItem from '../UsersAccess/UserListItem';
 import { Spinner } from '@chakra-ui/spinner';
 
+
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 function SideBar() {
 
 const [search, setSearch] = useState("");

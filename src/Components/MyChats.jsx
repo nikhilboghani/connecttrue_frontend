@@ -11,11 +11,14 @@ import ChatLoading from './ChatLoading';
 import { getSender } from "../config/ChatLogics";
 import GroupChatModel from "./Miscellaneous/GroupChatModel";
 
+
+ const apiUrl = process.env.REACT_APP_BACKEND_URL;
+ 
 function MyChats({ fetchAgain}) {
 
   const [loggedUser ,setLoggedUser]= useState();
   const { user, setUser,selectedChat ,setSelectedChat ,chats ,setChats } = useChatState();
-
+ 
   const toast = useToast();
 
   const fetchChats = async ()=>{

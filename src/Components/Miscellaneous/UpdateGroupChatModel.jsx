@@ -14,7 +14,8 @@ import axios from "axios"
 import UserListItem from "../UsersAccess/UserListItem"
 
 
-
+  const apiUrl = process.env.REACT_APP_BACKEND_URL;
+  
 function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
   
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,7 +28,7 @@ function UpdateGroupChatModel({fetchAgain, setFetchAgain , fetchMessages}) {
     const toast = useToast();
 
     const { user, selectedChat, setSelectedChat } = useChatState();
-  
+
     // handling functions 
 
     const handleAddUser = async (user1)=>{

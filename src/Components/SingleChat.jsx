@@ -17,11 +17,9 @@ import { io } from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
-const ENDPOINT = process.env.REACT_APP_SOCKET_ENDPOINT || "http://localhost:3000";
-const apiUrl = process.env.REACT_APP_BACKEND_URL;
-
+const  ENDPOINT = "https://connecttrue-backend.onrender.com";
 var  socket , selectedChatCompare;
-
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 function SingleChat({ fetchAgain, setFetchAgain }) {
 
