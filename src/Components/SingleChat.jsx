@@ -17,7 +17,9 @@ import { io } from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
-const  ENDPOINT = "https://connecttrue-backend.onrender.com";
+const ENDPOINT = process.env.REACT_APP_SOCKET_ENDPOINT || "http://localhost:3000";
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
 var  socket , selectedChatCompare;
 
 
@@ -54,7 +56,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
                     }
                 };
                 setLoading(true);
-                const {data} = await axios.get(`/api/chat/message/${selectedChat._id}`, config);
+                const {data} = await axios.get(`${apiUrl}/api/chat/message/${selectedChat._id}`, config);
                 setMessages(data);
                 setLoading(false);
 

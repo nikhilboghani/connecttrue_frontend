@@ -57,7 +57,7 @@ const { isOpen, onOpen, onClose } = useDisclosure()
           }
         };
 
-        const {data} = await axios.get(`/api/user?search=${search}`, config);
+        const {data} = await axios.get(`${apiUrl}/api/user?search=${search}`, config);
         setLoading(false);
         setSearchResults(data);
        } catch (error) {
